@@ -24,3 +24,5 @@ code App.java	== Opens your Java source code file.
 
 ## Playwright Inspector
 - See [here](docs/playwright_inspector.md)
+
+## New section
