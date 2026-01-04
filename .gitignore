@@ -1,0 +1,37 @@
+# --- Java / Build Tools ---
+target/
+build/
+bin/
+*.class
+*.jar
+*.war
+*.ear
+
+# --- Playwright Specifics ---
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+# If you use the Playwright CLI to download browsers locally
+pw-browsers/
+
+# --- Test Outputs & Logs ---
+*.log
+screenshots/
+videos/
+traces/
+
+# --- IDE Specific Files ---
+.settings/
+.project
+.classpath
+.factorypath
+.idea/
+*.iml
+*.iws
+.vscode/
+.DS_Store
+
+# --- Environment Secrets ---
+.env
+.env.local
