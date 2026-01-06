@@ -1,11 +1,11 @@
 package pages;
 
 import com.microsoft.playwright.Page;
-import utils.ConfigReader; // Import our bridge
+import utils.ConfigReader;
 
 public class WikipediaPortalPage {
     private final Page page;
-    private final String searchInput = "input#searchInput";
+    private final String searchInput = "#searchInput"; // ID selector
     private final String searchButton = "button[type='submit']";
 
     public WikipediaPortalPage(Page page) {
@@ -13,9 +13,7 @@ public class WikipediaPortalPage {
     }
 
     public void navigate() {
-        // Instead of hardcoding the URL, we pull it from config.properties
-        String baseUrl = ConfigReader.getProperty("url");
-        page.navigate(baseUrl);
+        page.navigate(ConfigReader.getProperty("url"));
     }
 
     public void searchFor(String term) {

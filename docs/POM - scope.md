@@ -54,3 +54,12 @@ When discussing POM with the engineers, use these phrases:
 Logic: The pom.xml is the brain of the Maven project; it must sit at the top level to manage everything beneath it.
 
 Interview Tip: "I keep my pom.xml in the root directory to maintain a standard Maven lifecycle and ensure all dependencies are correctly injected into the test source sets."
+
+playwright_study/
+├── pom.xml
+├── src/
+│   └── test/
+│       └── java/
+│           └── (your packages and classes)
+├── config.properties
+└── ... (other files)
