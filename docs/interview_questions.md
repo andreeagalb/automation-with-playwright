@@ -109,3 +109,7 @@ Since you are interviewing for an automation position, this is a perfect story t
 The Narrative:
 
 "I recently built a Playwright-Java framework and encountered persistent classpath issues during the compilation phase. I used a systematic refactoring strategy: I first simplified the project into a single package to verify the core logic. Once I had a successful build, I incrementally re-introduced the modular package structure (base, pages, and utils). This validated my dependency mapping and ensured that all access modifiers and imports were correctly configured for a scalable Page Object Model."
+
+Interview Tip: If an interviewer asks, "What is the difference between an object and a reference?"
+
+Your Answer: "The object is the actual instance residing in the Heap memory that contains data and behavior. The reference variable is a handle used to access that object. In my framework, page is a reference variable of type Page. This allows me to point it to different browser-specific implementations at runtime without changing my test logic."
