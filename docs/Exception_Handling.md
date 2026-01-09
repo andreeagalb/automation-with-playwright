@@ -1,0 +1,1 @@
+Let’s jump into Exception Handling (try-catch). This is a requirement for both roles. A Senior Tester uses it to handle flaky websites; a Mid Dev uses it to prevent the entire server from crashing when a database goes down.

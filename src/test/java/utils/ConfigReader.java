@@ -1,19 +1,22 @@
 package utils;
 
-
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigReader {
-    public static String getProperty(String key) {
-        Properties properties = new Properties();
+    private static Properties properties;
+
+    static { // Static block runs once when the class is loaded
         try {
-            FileInputStream file = new FileInputStream("config.properties");
+            FileInputStream file = new FileInputStream("src/test/resources/config.properties");
+            properties = new Properties();
             properties.load(file);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("Could not load configuration file!");
         }
+    }
+
+    public static String getProperty(String key) {
         return properties.getProperty(key);
     }
 }

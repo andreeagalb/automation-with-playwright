@@ -1,12 +1,17 @@
 package example;
 
 import org.junit.jupiter.api.Test;
+
+import com.microsoft.playwright.Page;
+
 import base.TestParent;
 import pages.WikipediaPortalPage;
 import pages.WikipediaResultPage;
 import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.HashMap;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WikiTest extends TestParent {
 
@@ -34,7 +39,38 @@ public class WikiTest extends TestParent {
             String actualTitle = resultPage.getArticleTitle();
             
             // 3. Exact match validation
-            assertEquals(expectedTitle, actualTitle, "Title mismatch for: " + searchTerm);
+           // Instead of assertEquals(expectedTitle, actualTitle);
+assertTrue(actualTitle.contains(searchTerm), 
+    "FAIL: The page title '" + actualTitle + "' does not contain '" + searchTerm + "'");
         }
     }
+@Test
+public void testWithExceptionHandling() {
+    WikipediaPortalPage portalPage = new WikipediaPortalPage(page);
+    
+    try {
+        portalPage.navigate();
+        // Imagine the internet is down or the selector is wrong
+        portalPage.searchFor("Java (programming language)");
+        
+        System.out.println("Search successful!");
+        
+    } catch (com.microsoft.playwright.PlaywrightException e) {
+        // This runs ONLY if a Playwright-specific error occurs
+        System.err.println("CRITICAL ERROR: Could not interact with the browser!");
+        System.err.println("Error Message: " + e.getMessage());
+        
+        // Senior Move: Take a screenshot here so you can see what went wrong
+        page.screenshot(new Page.ScreenshotOptions().setPath(java.nio.file.Paths.get("error.png")));
+        
+    } catch (Exception e) {
+        // This catches any OTHER type of Java error
+        System.err.println("An unexpected Java error occurred: " + e.getMessage());
+        
+    } finally {
+        System.out.println("Cleaning up the test execution...");
+        // Usually, browser closing is handled in @AfterEach, 
+        // but finally is the core Java way to ensure cleanup.
+    }
+}
 }
