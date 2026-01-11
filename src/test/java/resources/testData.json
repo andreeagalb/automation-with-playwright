@@ -1,0 +1,14 @@
+{
+  "testProject": "Wikipedia Automation",
+  "iteration": 1,
+  "categories": [
+    {
+      "type": "Object-Oriented",
+      "languages": ["Java", "C++", "C#"]
+    },
+    {
+      "type": "Scripting",
+      "languages": ["Python", "JavaScript", "Ruby"]
+    }
+  ]
+}
